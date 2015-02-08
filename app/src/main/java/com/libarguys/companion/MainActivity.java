@@ -1,5 +1,8 @@
 package com.libarguys.companion;
 
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,10 +19,13 @@ import retrofit.client.Response;
 
 public class MainActivity extends ActionBarActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
 
@@ -52,14 +58,20 @@ public class MainActivity extends ActionBarActivity {
     }
     public void getWeather()
     {
+        // getting GPS status
+        LocationServices locServices = new LocationServices(this);
+       Double lat = 0.0;
+        Double lon = 0.0;
+        lat = locServices.getLatitude();
+        lon = locServices.getLongitude();
         Log.i("Companion","Making HTTP Call for Weather");
-        RestClient.get().getWeather("California", new Callback<WeatherResponse>() {
+        RestClient.get().getWeather(lat,lon,"imperial", new Callback<WeatherResponse>() {
             @Override
             public void success(WeatherResponse weatherResponse, Response response) {
                 // success!
                 Log.i("App", weatherResponse.getBase());
-                //Log.i("App", weatherResponse.getMain().getMain());
-                //Log.i("App", weatherResponse.getMain().getDescription());
+                Log.i("App", String.valueOf(weatherResponse.getMain().getTemp()));
+               // Log.i("App", weatherResponse.getMain().getDescription());
                 // you get the point...
             }
 

@@ -1,43 +1,242 @@
 package com.libarguys.companion.model;
-
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import javax.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-/**
- * Created by androiddev on 2/8/15.
- */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+//@Generated("org.jsonschema2pojo")
+@JsonPropertyOrder({
+        "coord",
+        "sys",
+        "weather",
+        "base",
+        "main",
+        "wind",
+        "clouds",
+        "dt",
+        "id",
+        "name",
+        "cod"
+})
 public class WeatherResponse {
 
-    private int cod;
+    @JsonProperty("coord")
+    private Coord coord;
+    @JsonProperty("sys")
+    private Sys sys;
+    @JsonProperty("weather")
+    private List<Weather> weather = new ArrayList<Weather>();
+    @JsonProperty("base")
     private String base;
-    private Weather main;
+    @JsonProperty("main")
+    private Main main;
+    @JsonProperty("dt")
+    private Integer dt;
+    @JsonProperty("id")
+    private Integer id;
+    @JsonProperty("name")
+    private String name;
+    @JsonProperty("cod")
+    private Integer cod;
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    public WeatherResponse(int cod, String base) {
-        this.cod = cod;
-        this.base = base;
-       // this.main = main;
+    /**
+     *
+     * @return
+     * The coord
+     */
+    @JsonProperty("coord")
+    public Coord getCoord() {
+        return coord;
     }
 
-    public int getCod() {
-        return cod;
+    /**
+     *
+     * @param coord
+     * The coord
+     */
+    @JsonProperty("coord")
+    public void setCoord(Coord coord) {
+        this.coord = coord;
     }
 
-    public void setCod(int cod) {
-        this.cod = cod;
+    /**
+     *
+     * @return
+     * The sys
+     */
+    @JsonProperty("sys")
+    public Sys getSys() {
+        return sys;
     }
 
+    /**
+     *
+     * @param sys
+     * The sys
+     */
+    @JsonProperty("sys")
+    public void setSys(Sys sys) {
+        this.sys = sys;
+    }
+
+    /**
+     *
+     * @return
+     * The weather
+     */
+    @JsonProperty("weather")
+    public List<Weather> getWeather() {
+        return weather;
+    }
+
+    /**
+     *
+     * @param weather
+     * The weather
+     */
+    @JsonProperty("weather")
+    public void setWeather(List<Weather> weather) {
+        this.weather = weather;
+    }
+
+    /**
+     *
+     * @return
+     * The base
+     */
+    @JsonProperty("base")
     public String getBase() {
         return base;
     }
 
+    /**
+     *
+     * @param base
+     * The base
+     */
+    @JsonProperty("base")
     public void setBase(String base) {
         this.base = base;
     }
-    public Weather getMain() {
+
+    /**
+     *
+     * @return
+     * The main
+     */
+    @JsonProperty("main")
+    public Main getMain() {
         return main;
     }
 
-    public void setMain(Weather main) {
+    /**
+     *
+     * @param main
+     * The main
+     */
+    @JsonProperty("main")
+    public void setMain(Main main) {
         this.main = main;
+    }
+
+    /**
+     *
+     * @return
+     * The dt
+     */
+    @JsonProperty("dt")
+    public Integer getDt() {
+        return dt;
+    }
+
+    /**
+     *
+     * @param dt
+     * The dt
+     */
+    @JsonProperty("dt")
+    public void setDt(Integer dt) {
+        this.dt = dt;
+    }
+
+    /**
+     *
+     * @return
+     * The id
+     */
+    @JsonProperty("id")
+    public Integer getId() {
+        return id;
+    }
+
+    /**
+     *
+     * @param id
+     * The id
+     */
+    @JsonProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    /**
+     *
+     * @return
+     * The name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return name;
+    }
+
+    /**
+     *
+     * @param name
+     * The name
+     */
+    @JsonProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     *
+     * @return
+     * The cod
+     */
+    @JsonProperty("cod")
+    public Integer getCod() {
+        return cod;
+    }
+
+    /**
+     *
+     * @param cod
+     * The cod
+     */
+    @JsonProperty("cod")
+    public void setCod(Integer cod) {
+        this.cod = cod;
+    }
+
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
     }
 
 }

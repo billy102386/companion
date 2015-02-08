@@ -12,6 +12,6 @@ import retrofit.http.Query;
 public interface Api {
 
     @GET("/weather")
-    void getWeather(@Query("q") String cityName,
+    void getWeather(@Query("lat") Double lat,@Query("lon") Double lon,@Query("units") String units,
                     Callback<WeatherResponse> callback);
 }
