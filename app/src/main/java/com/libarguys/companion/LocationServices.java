@@ -24,6 +24,7 @@ public class LocationServices extends Service implements LocationListener {
     private double lat;
     private double lon;
 public LocationServices(Context context) {
+    locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
     Boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
     Log.i("CompanionGPS", "GPS Enabled: " + isGPSEnabled);
     Double lat = 0.0;
