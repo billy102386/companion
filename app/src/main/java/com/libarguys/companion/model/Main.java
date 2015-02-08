@@ -1,5 +1,5 @@
 package com.libarguys.companion.model;
-
+    
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Generated;
@@ -191,3 +191,4 @@ public class Main {
     }
 
 }
+
