@@ -9,12 +9,13 @@ public class WeatherResponse {
 
     private int cod;
     private String base;
-    private Weather main;
+    private Weather[] weather;
 
-    public WeatherResponse(int cod, String base) {
+
+    public WeatherResponse(int cod, String base, Weather[] weather) {
         this.cod = cod;
         this.base = base;
-       // this.main = main;
+        this.weather = weather;
     }
 
     public int getCod() {
@@ -29,15 +30,12 @@ public class WeatherResponse {
         return base;
     }
 
-    public void setBase(String base) {
-        this.base = base;
-    }
-    public Weather getMain() {
-        return main;
+    public Weather[] getWeather()
+    {
+        return weather;
     }
 
-    public void setMain(Weather main) {
-        this.main = main;
-    }
+
+
 
 }

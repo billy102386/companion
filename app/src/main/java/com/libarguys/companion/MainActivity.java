@@ -1,13 +1,20 @@
 package com.libarguys.companion;
 
+
+import com.libarguys.companion.model.Greeting;
+
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.util.Log;
+import android.widget.EditText;
 
 import com.libarguys.companion.model.WeatherResponse;
+
+import java.io.FileOutputStream;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -20,7 +27,35 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Greeting g = new Greeting();
+        EditText output = (EditText)findViewById(R.id.txtOutput);
+
+        output.setText(g.getGreeting());
+        WriteFile();
+
     }
+
+
+    protected void WriteFile()
+    {
+        String filename = "myoutput";
+        String string = "Hello world!";
+        FileOutputStream outputStream;
+
+        try {
+            outputStream = openFileOutput(filename, Context.MODE_WORLD_READABLE);
+            outputStream.write(string.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Log.i("output", "wrote to file");
+    }
+
+
+
 
 
     @Override
@@ -57,9 +92,10 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void success(WeatherResponse weatherResponse, Response response) {
                 // success!
+
                 Log.i("App", weatherResponse.getBase());
-                //Log.i("App", weatherResponse.getMain().getMain());
-                //Log.i("App", weatherResponse.getMain().getDescription());
+                Log.i("App", weatherResponse.getWeather()[0].getMain());
+                Log.i("App", weatherResponse.getWeather()[0].getDescription());
                 // you get the point...
             }
 

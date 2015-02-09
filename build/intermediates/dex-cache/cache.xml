@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/rich/git/android/companion/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/classes-1639917b975b8b3708586f11a0694fc60ef190d9.jar" />
+    </item>
+    <item
+        jar="/Users/rich/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.1.0/9b51f7d0c19f179b52beab7cb433f8ba5cf786a4/okhttp-2.1.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9b51f7d0c19f179b52beab7cb433f8ba5cf786a4">
+        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/okhttp-2.1.0-331447e5688c1e4f301b5796f4e23a2b1cfea6d9.jar" />
+    </item>
+    <item
+        jar="/Users/rich/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-55bba21340c5461173c058e3511ec356c0118060.jar" />
+    </item>
+    <item
+        jar="/Users/rich/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/retrofit-1.9.0-067d5f9315e92f4ae492ea3ba76f7336e0c6045d.jar" />
+    </item>
+    <item
+        jar="/Users/rich/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/gson-2.3.1-fb0ef272cc73bd1ce6f925fbbf1160fe94c970ef.jar" />
+    </item>
+    <item
+        jar="/Users/rich/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp-urlconnection/2.1.0/6025b7df8a6a4193138723ef120e7228b6a97024/okhttp-urlconnection-2.1.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6025b7df8a6a4193138723ef120e7228b6a97024">
+        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-2.1.0-3937675355fc39543b191564c3db907a671363e4.jar" />
+    </item>
+    <item
+        jar="/Users/rich/git/android/companion/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/classes-e31bf72a236ac3bef9c443986f90bd2dfd1b2e5e.jar" />
+    </item>
+    <item
+        jar="/Users/rich/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.0.1/39eff75ddcb987ff65888361a29f489c178429a3/okio-1.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="39eff75ddcb987ff65888361a29f489c178429a3">
+        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/okio-1.0.1-d8177fc5447abc1765ccee4dd0c8b2e9ab7c62cd.jar" />
+    </item>
+    <item
+        jar="/Users/rich/git/android/companion/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/classes-61eea66bbc6b0496c5fa353a779d6268c7d86b99.jar" />
+    </item>
+    <item
+        jar="/Users/rich/git/android/companion/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-ad8787769053726735bf0296f88af6857c3fbc4d.jar" />
+    </item>
+
+</items>
