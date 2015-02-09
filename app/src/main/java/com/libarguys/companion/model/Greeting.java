@@ -16,6 +16,7 @@ public class Greeting {
     private String _sMorningGreeting;
     private String _sAfternoonGreeting;
     private String _sNightGreeting;
+    private String _sLateNightGreeting;
 
 
 }
