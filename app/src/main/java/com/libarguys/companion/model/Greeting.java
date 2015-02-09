@@ -13,5 +13,8 @@ public class Greeting {
     //this model should interface with the settings for the app
    //We want the user to be able to enter a list of greetings corresponding to the Time of Days we defined.
 
+    private String _sMorningGreeting;
+    private String _sAfternoonGreeting;
+
 
 }
