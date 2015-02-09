@@ -19,9 +19,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class Coord {
 
     @JsonProperty("lon")
-    private Integer lon;
+    private Double lon;
     @JsonProperty("lat")
-    private Integer lat;
+    private Double lat;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -31,7 +31,7 @@ public class Coord {
      * The lon
      */
     @JsonProperty("lon")
-    public Integer getLon() {
+    public Double getLon() {
         return lon;
     }
 
@@ -41,7 +41,7 @@ public class Coord {
      * The lon
      */
     @JsonProperty("lon")
-    public void setLon(Integer lon) {
+    public void setLon(Double lon) {
         this.lon = lon;
     }
 
@@ -51,7 +51,7 @@ public class Coord {
      * The lat
      */
     @JsonProperty("lat")
-    public Integer getLat() {
+    public Double getLat() {
         return lat;
     }
 
@@ -61,7 +61,7 @@ public class Coord {
      * The lat
      */
     @JsonProperty("lat")
-    public void setLat(Integer lat) {
+    public void setLat(Double lat) {
         this.lat = lat;
     }
 

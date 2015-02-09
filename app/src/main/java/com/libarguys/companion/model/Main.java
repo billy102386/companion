@@ -36,7 +36,7 @@ public class Main {
     @JsonProperty("grnd_level")
     private Double grndLevel;
     @JsonProperty("humidity")
-    private Integer humidity;
+    private Double humidity;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -166,7 +166,7 @@ public class Main {
      * The humidity
      */
     @JsonProperty("humidity")
-    public Integer getHumidity() {
+    public Double getHumidity() {
         return humidity;
     }
 
@@ -176,7 +176,7 @@ public class Main {
      * The humidity
      */
     @JsonProperty("humidity")
-    public void setHumidity(Integer humidity) {
+    public void setHumidity(Double humidity) {
         this.humidity = humidity;
     }
 
