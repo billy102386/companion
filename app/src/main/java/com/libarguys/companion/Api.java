@@ -1,6 +1,7 @@
 package com.libarguys.companion;
 
 import com.libarguys.companion.model.WeatherResponse;
+import com.libarguys.companion.view.WeatherView;
 
 import retrofit.Callback;
 import retrofit.http.GET;
@@ -12,6 +13,6 @@ import retrofit.http.Query;
 public interface Api {
 
     @GET("/weather")
-    void getWeather(@Query("lat") Double lat,@Query("lon") Double lon,@Query("units") String units,
+    void getWeather(@Query("lat") Double lat, @Query("lon") Double lon, @Query("units") String units,
                     Callback<WeatherResponse> callback);
 }

@@ -9,6 +9,13 @@
         <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/classes-1639917b975b8b3708586f11a0694fc60ef190d9.jar" />
     </item>
     <item
+        jar="/Users/rich/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.0.1/481d14ec21e034ed45217c4854dbbf15940ce108/jackson-core-2.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="481d14ec21e034ed45217c4854dbbf15940ce108">
+        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/jackson-core-2.0.1-bb8b2ee40aed4774eda35dbed742206175b805c1.jar" />
+    </item>
+    <item
         jar="/Users/rich/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.1.0/9b51f7d0c19f179b52beab7cb433f8ba5cf786a4/okhttp-2.1.0.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -16,11 +23,39 @@
         <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/okhttp-2.1.0-331447e5688c1e4f301b5796f4e23a2b1cfea6d9.jar" />
     </item>
     <item
+        jar="/Users/rich/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.0.1/36e5996abe8655a6471b82af5ac1cd6786aecf85/jackson-annotations-2.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="36e5996abe8655a6471b82af5ac1cd6786aecf85">
+        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.0.1-587ed1721cbd0c7300f5ee44c3ccd303609594b8.jar" />
+    </item>
+    <item
         jar="/Users/rich/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
         <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-55bba21340c5461173c058e3511ec356c0118060.jar" />
+    </item>
+    <item
+        jar="/Users/rich/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp-urlconnection/2.1.0/6025b7df8a6a4193138723ef120e7228b6a97024/okhttp-urlconnection-2.1.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6025b7df8a6a4193138723ef120e7228b6a97024">
+        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-2.1.0-3937675355fc39543b191564c3db907a671363e4.jar" />
+    </item>
+    <item
+        jar="/Users/rich/git/android/companion/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/classes-61eea66bbc6b0496c5fa353a779d6268c7d86b99.jar" />
+    </item>
+    <item
+        jar="/Users/rich/.gradle/caches/modules-2/files-2.1/org.glassfish/javax.annotation/10.0-b28/30eb3b3cc9cb0863a4edaea5a7575f8ace1b96ba/javax.annotation-10.0-b28.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="30eb3b3cc9cb0863a4edaea5a7575f8ace1b96ba">
+        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/javax.annotation-10.0-b28-2331a8566547597256ebd8da27dbe788a90213b6.jar" />
     </item>
     <item
         jar="/Users/rich/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
@@ -37,13 +72,6 @@
         <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/gson-2.3.1-fb0ef272cc73bd1ce6f925fbbf1160fe94c970ef.jar" />
     </item>
     <item
-        jar="/Users/rich/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp-urlconnection/2.1.0/6025b7df8a6a4193138723ef120e7228b6a97024/okhttp-urlconnection-2.1.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="6025b7df8a6a4193138723ef120e7228b6a97024">
-        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-2.1.0-3937675355fc39543b191564c3db907a671363e4.jar" />
-    </item>
-    <item
         jar="/Users/rich/git/android/companion/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -58,11 +86,11 @@
         <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/okio-1.0.1-d8177fc5447abc1765ccee4dd0c8b2e9ab7c62cd.jar" />
     </item>
     <item
-        jar="/Users/rich/git/android/companion/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jar="/Users/rich/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.0.1/1d160beb3f8924d5b98d03d94a149021146f71cc/jackson-databind-2.0.1.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/classes-61eea66bbc6b0496c5fa353a779d6268c7d86b99.jar" />
+        sha1="1d160beb3f8924d5b98d03d94a149021146f71cc">
+        <dex dex="/Users/rich/git/android/companion/app/build/intermediates/pre-dexed/debug/jackson-databind-2.0.1-54598d46578f02b313b3a416c60d8390e7175376.jar" />
     </item>
     <item
         jar="/Users/rich/git/android/companion/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"

@@ -15,6 +15,8 @@ import android.view.View;
 import android.util.Log;
 import android.widget.EditText;
 import com.libarguys.companion.model.WeatherResponse;
+import com.libarguys.companion.view.MessageFactory;
+
 import java.io.FileOutputStream;
 import java.util.Locale;
 import retrofit.Callback;
@@ -32,51 +34,43 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Greeting g = new Greeting();
-        EditText output = (EditText)findViewById(R.id.txtOutput);
+        LocationServices locServices = new LocationServices(this);
+        double lat = 0.0;
+        double lon = 0.0;
+        lat = locServices.getLatitude();
+        lon = locServices.getLongitude();
 
-        output.setText(g.getGreeting());
-        WriteFile();
+        MessageFactory.getFactory().setLat(lat);
+        MessageFactory.getFactory().setLon(lon);
 
-        tts=new TextToSpeech(MainActivity.this, new TextToSpeech.OnInitListener() {
+        EditText output = (EditText) findViewById(R.id.txtOutput);
+
+        output.setText(MessageFactory.getFactory().getMessages());
+
+
+        tts = new TextToSpeech(MainActivity.this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
                 // TODO Auto-generated method stub
-                if(status == TextToSpeech.SUCCESS){
-                    int result=tts.setLanguage(Locale.US);
-                    if(result==TextToSpeech.LANG_MISSING_DATA ||
-                            result==TextToSpeech.LANG_NOT_SUPPORTED){
+                if (status == TextToSpeech.SUCCESS) {
+                    int result = tts.setLanguage(Locale.US);
+                    if (result == TextToSpeech.LANG_MISSING_DATA ||
+                            result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("error", "This Language is not supported");
-                    }
-                    else{
+                    } else {
                         //ConvertTextToSpeech();
+
+
+
                     }
-                }
-                else
+                } else
                     Log.e("error", "Initilization Failed!");
             }
         });
 
+
+
     }
-
-
-    protected void WriteFile()
-    {
-        String filename = "myoutput";
-        String string = "Hello world!";
-        FileOutputStream outputStream;
-
-        try {
-            outputStream = openFileOutput(filename, Context.MODE_WORLD_READABLE);
-            outputStream.write(string.getBytes());
-            outputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        Log.i("output", "wrote to file");
-    }
-
 
 
 
@@ -105,40 +99,9 @@ public class MainActivity extends ActionBarActivity {
     public void checkWeather(View view)
     {
 
-           Log.i("Companion Main Screen","Someone clicked the weather button");
-        getWeather();
+           ConvertTextToSpeech(MessageFactory.getFactory().getMessages());
     }
-    public void getWeather()
-    {
-        // getting GPS status
-        LocationServices locServices = new LocationServices(this);
-       Double lat = 0.0;
-        Double lon = 0.0;
-        lat = locServices.getLatitude();
-        lon = locServices.getLongitude();
-        Log.i("Companion","Making HTTP Call for Weather");
-        RestClient.get().getWeather(lat,lon,"imperial", new Callback<WeatherResponse>() {
-            @Override
-            public void success(WeatherResponse weatherResponse, Response response) {
-                // success!
 
-                Log.i("App", weatherResponse.getBase());
-                Log.i("App", weatherResponse.getWeather()[0].getMain());
-                Log.i("App", weatherResponse.getWeather()[0].getDescription());
-                Log.i("App", String.valueOf(weatherResponse.getMain().getTemp()));
-                ConvertTextToSpeech("The weather is going to be "+weatherResponse.getWeather().get(0).getDescription());
-
-                // Log.i("App", weatherResponse.getMain().getDescription());
-                // you get the point...
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                // something went wrong
-                Log.e("Companion",error.getMessage());
-            }
-        });
-    }
 
     @Override
     protected void onPause() {
