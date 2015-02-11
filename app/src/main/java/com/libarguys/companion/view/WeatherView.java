@@ -34,8 +34,8 @@ public class WeatherView implements IMessage {
     public String getMessage() {
 
         checkWeather();
-
-        if (MessageFactory.getFactory().getWeatherResponse() != null) {
+        WeatherResponse w = MessageFactory.getFactory().getWeatherResponse();
+        if ( w!= null) {
 
 
             TimeOfDay tod = TimeOfDay.getTimeOfDay();
@@ -65,13 +65,13 @@ public class WeatherView implements IMessage {
     {
 
         Log.i("Companion", "Making HTTP Call for Weather");
-        RestClient.get().getWeather(_dLat,_dLon,"imperial", new Callback<WeatherResponse>() {
+        /*RestClient.get().getWeather(_dLat,_dLon,"imperial", new Callback<WeatherResponse>() {
             @Override
             public void success(WeatherResponse weatherResponse, Response response) {
                 // success!
                 MessageFactory.getFactory().setWeatherResponse(weatherResponse);
 
-                // Log.i("App", weatherResponse.getMain().getDescription());
+                 Log.i("App", weatherResponse.getWeather().get(0).getDescription());
                 // you get the point...
             }
 
@@ -82,8 +82,11 @@ public class WeatherView implements IMessage {
 
                 _wrWeatherResponse = null;
             }
-        });
+        });*/
+        WeatherResponse weatherResponse=RestClient.get().getWeather(_dLat,_dLon,"imperial");
+        MessageFactory.getFactory().setWeatherResponse(weatherResponse);
 
+        Log.i("WeatherView","Weather:"+weatherResponse.getWeather().get(0).getDescription());
 
     }
 
