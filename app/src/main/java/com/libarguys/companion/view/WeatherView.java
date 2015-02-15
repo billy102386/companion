@@ -34,8 +34,6 @@ public class WeatherView implements IMessage {
     public String getMessage() {
 
         checkWeather();
-        WeatherResponse w = MessageFactory.getFactory().getWeatherResponse();
-        if ( w!= null) {
 
 
             TimeOfDay tod = TimeOfDay.getTimeOfDay();
@@ -55,7 +53,7 @@ public class WeatherView implements IMessage {
                 return getMessageAfternoon();
             else if (tod == TimeOfDay.NIGHT)
                 return getMessageNight();
-        }
+
 
         return "";
     }
@@ -83,8 +81,8 @@ public class WeatherView implements IMessage {
                 _wrWeatherResponse = null;
             }
         });*/
+
         WeatherResponse weatherResponse=RestClient.get().getWeather(_dLat,_dLon,"imperial");
-        MessageFactory.getFactory().setWeatherResponse(weatherResponse);
 
         Log.i("WeatherView","Weather:"+weatherResponse.getWeather().get(0).getDescription());
 
