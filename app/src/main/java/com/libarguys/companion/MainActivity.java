@@ -19,6 +19,7 @@ import android.view.View;
 import android.util.Log;
 import android.widget.EditText;
 import com.libarguys.companion.model.WeatherResponse;
+import com.libarguys.companion.view.CalendarView;
 import com.libarguys.companion.view.CountdownView;
 import com.libarguys.companion.view.GreetingView;
 import com.libarguys.companion.view.WeatherView;
@@ -142,8 +143,9 @@ public class MainActivity extends ActionBarActivity {
         if (message == null || "".equals(message)) {
             message = "Content not available";
             tts.speak(message, TextToSpeech.QUEUE_FLUSH, null);
-        } else
+        } else {
             tts.speak(message + "", TextToSpeech.QUEUE_FLUSH, null);
+        }
     }
 
 
@@ -153,6 +155,8 @@ public class MainActivity extends ActionBarActivity {
         protected String doInBackground(URL... urls) {
 
             String sMessage = "";
+            Context c = getApplicationContext();
+
 
             GreetingView gv = new GreetingView();
             sMessage += gv.getMessage();
@@ -165,6 +169,12 @@ public class MainActivity extends ActionBarActivity {
             CountdownView cdv = new CountdownView();
 
             sMessage += cdv.getMessage();
+
+
+            CalendarView cv = new CalendarView(c);
+            sMessage += " ";
+            sMessage += cv.getMessage();
+
 
             return sMessage;
         }
@@ -183,7 +193,7 @@ public class MainActivity extends ActionBarActivity {
 
             output.setText(result);
 
- 
+
         }
 
     }
