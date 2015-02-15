@@ -1,6 +1,5 @@
 package com.libarguys.companion;
 
-import com.libarguys.companion.model.SettingsTest;
 
 /**
  * Created by rich on 2/15/15.
@@ -8,7 +7,7 @@ import com.libarguys.companion.model.SettingsTest;
 public class SettingsFactory {
 
 
-    private static SettingsTest _settings;
+/*    private static SettingsTest _settings;
 
     public static SettingsTest getSettings()
     {
@@ -22,6 +21,6 @@ public class SettingsFactory {
     }
 
 
-
+*/
 
 }

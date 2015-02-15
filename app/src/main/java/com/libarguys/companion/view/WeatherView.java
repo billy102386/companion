@@ -1,5 +1,6 @@
 package com.libarguys.companion.view;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.libarguys.companion.LocationServices;
@@ -18,10 +19,11 @@ import retrofit.client.Response;
 public class WeatherView implements IMessage {
 
     private WeatherResponse res;
+    private Context context;
 
-    public WeatherView()
+    public WeatherView(Context c)
     {
-
+        context = c;
     }
 
 
@@ -58,8 +60,14 @@ public class WeatherView implements IMessage {
 
         Log.i("Companion", "Making HTTP Call for Weather");
 
+        LocationServices locServices = new LocationServices(context);
+        double lat = 0.0;
+        double lon = 0.0;
+        lat = locServices.getLatitude();
+        lon = locServices.getLongitude();
 
-        WeatherResponse weatherResponse=RestClient.get().getWeather(SettingsFactory.getSettings().getLat(),SettingsFactory.getSettings().getLon(),"imperial");
+
+        WeatherResponse weatherResponse=RestClient.get().getWeather(locServices.getLatitude(),locServices.getLongitude(),"imperial");
 
         Log.i("WeatherView","Weather:"+weatherResponse.getWeather().get(0).getDescription());
 
