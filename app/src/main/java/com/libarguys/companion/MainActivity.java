@@ -42,14 +42,6 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        LocationServices locServices = new LocationServices(this);
-        double lat = 0.0;
-        double lon = 0.0;
-        lat = locServices.getLatitude();
-        lon = locServices.getLongitude();
-
-        SettingsFactory.getSettings().setLat(lat);
-        SettingsFactory.getSettings().setLon(lon);
 
         EditText output = (EditText) findViewById(R.id.txtOutput);
 
@@ -169,7 +161,6 @@ public class MainActivity extends ActionBarActivity {
             WeatherView wv = new WeatherView();
 
             sMessage += wv.getMessage();
-
 
             CountdownView cdv = new CountdownView();
 

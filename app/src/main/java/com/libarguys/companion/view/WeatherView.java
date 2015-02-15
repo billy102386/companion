@@ -58,6 +58,12 @@ public class WeatherView implements IMessage {
 
         Log.i("Companion", "Making HTTP Call for Weather");
 
+        LocationServices locServices = new LocationServices(getApplicationContext());
+        double lat = 0.0;
+        double lon = 0.0;
+        lat = locServices.getLatitude();
+        lon = locServices.getLongitude();
+
 
         WeatherResponse weatherResponse=RestClient.get().getWeather(SettingsFactory.getSettings().getLat(),SettingsFactory.getSettings().getLon(),"imperial");
 
