@@ -27,20 +27,22 @@ public enum TimeOfDay
 
     public static TimeOfDay getTimeOfDay(Calendar c)
     {
-
-        if (c.HOUR >= LATE_NIGHT.START && c.HOUR <= LATE_NIGHT.END)
+    
+        int hour = c.get(Calendar.HOUR_OF_DAY);
+        
+        if (hour >= LATE_NIGHT.START && hour <= LATE_NIGHT.END)
             return LATE_NIGHT;
-        else if (c.HOUR >= EARLY_MORNING.START && c.HOUR <= EARLY_MORNING.END)
+        else if (hour >= EARLY_MORNING.START && hour <= EARLY_MORNING.END)
             return EARLY_MORNING;
-        else if (c.HOUR >= MORNING.START && c.HOUR <= MORNING.END)
+        else if (hour >= MORNING.START && hour <= MORNING.END)
             return MORNING;
-        else if (c.HOUR >= NOON.START && c.HOUR <= NOON.END)
+        else if (hour >= NOON.START && hour <= NOON.END)
             return NOON;
-        else if (c.HOUR >= AFTERNOON.START && c.HOUR <= AFTERNOON.END)
+        else if (hour >= AFTERNOON.START && hour <= AFTERNOON.END)
             return AFTERNOON;
-        else if (c.HOUR >= EVENING.START && c.HOUR <= EVENING.END)
+        else if (hour >= EVENING.START && hour <= EVENING.END)
             return EVENING;
-        else if (c.HOUR >= NIGHT.START && c.HOUR <= NIGHT.END)
+        else if (hour >= NIGHT.START && hour <= NIGHT.END)
             return NIGHT;
 
         return TimeOfDay.MORNING;

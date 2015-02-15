@@ -35,8 +35,6 @@ public class WeatherView implements IMessage {
 
         checkWeather();
 
-        if (MessageFactory.getFactory().getWeatherResponse() != null) {
-
 
             TimeOfDay tod = TimeOfDay.getTimeOfDay();
 
@@ -55,7 +53,7 @@ public class WeatherView implements IMessage {
                 return getMessageAfternoon();
             else if (tod == TimeOfDay.NIGHT)
                 return getMessageNight();
-        }
+
 
         return "";
     }
@@ -65,13 +63,13 @@ public class WeatherView implements IMessage {
     {
 
         Log.i("Companion", "Making HTTP Call for Weather");
-        RestClient.get().getWeather(_dLat,_dLon,"imperial", new Callback<WeatherResponse>() {
+        /*RestClient.get().getWeather(_dLat,_dLon,"imperial", new Callback<WeatherResponse>() {
             @Override
             public void success(WeatherResponse weatherResponse, Response response) {
                 // success!
                 MessageFactory.getFactory().setWeatherResponse(weatherResponse);
 
-                // Log.i("App", weatherResponse.getMain().getDescription());
+                 Log.i("App", weatherResponse.getWeather().get(0).getDescription());
                 // you get the point...
             }
 
@@ -82,8 +80,11 @@ public class WeatherView implements IMessage {
 
                 _wrWeatherResponse = null;
             }
-        });
+        });*/
 
+        WeatherResponse weatherResponse=RestClient.get().getWeather(_dLat,_dLon,"imperial");
+
+        Log.i("WeatherView","Weather:"+weatherResponse.getWeather().get(0).getDescription());
 
     }
 
