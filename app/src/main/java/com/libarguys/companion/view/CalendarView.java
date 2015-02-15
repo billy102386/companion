@@ -24,11 +24,13 @@ public class CalendarView {
     static Cursor cursor;
 
     private String calMessage;
+    Context context;
 
 
     ArrayList<String> CalendarNames = new ArrayList<String>();
 
-    public CalendarView(Context context) {
+    public CalendarView(Context inContext) {
+        context=inContext;
 
         ContentResolver contentResolver = context.getContentResolver();
 
@@ -72,7 +74,7 @@ public class CalendarView {
 
 
 
-    public ArrayList<String> getCalendarEvents(Context context) {
+    public ArrayList<String> getCalendarEvents() {
             ArrayList<String> eventList = new ArrayList<String>();
             try{
                 Uri.Builder eventsUriBuilder = CalendarContract.Instances.CONTENT_URI
@@ -181,7 +183,12 @@ public class CalendarView {
 
     public String getCalendarMessage() {
         calMessage="";
-        //calMessage = getCalendarEvents();
+        ArrayList<String> events = getCalendarEvents();
+        for(String event:events)
+        {
+            calMessage+= event+" ";
+        }
+        Log.i("CalendarView","Calendar Message: "+calMessage);
         return calMessage;
     }
 }

@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.libarguys.companion.LocationServices;
 import com.libarguys.companion.RestClient;
+import com.libarguys.companion.SettingsFactory;
 import com.libarguys.companion.model.WeatherResponse;
 import com.libarguys.companion.util.TimeOfDay;
 
@@ -16,24 +17,17 @@ import retrofit.client.Response;
  */
 public class WeatherView implements IMessage {
 
-    private double _dLat;
-    private double _dLon;
+    private WeatherResponse res;
 
-
-    private WeatherResponse _wrWeatherResponse;
-
-
-    public WeatherView(Double dLat, Double dLon)
+    public WeatherView()
     {
-        _dLat = dLat;
-        _dLon = dLon;
 
     }
 
 
     public String getMessage() {
 
-        checkWeather();
+        res = checkWeather();
 
 
             TimeOfDay tod = TimeOfDay.getTimeOfDay();
@@ -59,32 +53,17 @@ public class WeatherView implements IMessage {
     }
 
 
-    private void checkWeather()
+    private WeatherResponse checkWeather()
     {
 
         Log.i("Companion", "Making HTTP Call for Weather");
-        /*RestClient.get().getWeather(_dLat,_dLon,"imperial", new Callback<WeatherResponse>() {
-            @Override
-            public void success(WeatherResponse weatherResponse, Response response) {
-                // success!
-                MessageFactory.getFactory().setWeatherResponse(weatherResponse);
 
-                 Log.i("App", weatherResponse.getWeather().get(0).getDescription());
-                // you get the point...
-            }
 
-            @Override
-            public void failure(RetrofitError error) {
-                // something went wrong
-                Log.e("Companion",error.getMessage());
-
-                _wrWeatherResponse = null;
-            }
-        });*/
-
-        WeatherResponse weatherResponse=RestClient.get().getWeather(_dLat,_dLon,"imperial");
+        WeatherResponse weatherResponse=RestClient.get().getWeather(SettingsFactory.getSettings().getLat(),SettingsFactory.getSettings().getLon(),"imperial");
 
         Log.i("WeatherView","Weather:"+weatherResponse.getWeather().get(0).getDescription());
+
+        return weatherResponse;
 
     }
 
@@ -96,7 +75,8 @@ public class WeatherView implements IMessage {
 
     private String getMessageAfternoon()
     {
-        return "Weather Afternoon";
+      return "Current conditions for " + res.getName() + ", " + res.getWeather().get(0).getDescription();
+
     }
 
     private String getMessageNight()
