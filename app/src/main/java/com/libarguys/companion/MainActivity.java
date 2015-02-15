@@ -162,7 +162,7 @@ public class MainActivity extends ActionBarActivity {
             sMessage += gv.getMessage();
 
 
-            WeatherView wv = new WeatherView();
+            WeatherView wv = new WeatherView(c);
 
             sMessage += wv.getMessage();
 
