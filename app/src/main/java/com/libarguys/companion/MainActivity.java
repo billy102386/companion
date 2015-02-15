@@ -19,6 +19,7 @@ import android.view.View;
 import android.util.Log;
 import android.widget.EditText;
 import com.libarguys.companion.model.WeatherResponse;
+import com.libarguys.companion.view.CountdownView;
 import com.libarguys.companion.view.GreetingView;
 import com.libarguys.companion.view.WeatherView;
 
@@ -46,6 +47,9 @@ public class MainActivity extends ActionBarActivity {
         double lon = 0.0;
         lat = locServices.getLatitude();
         lon = locServices.getLongitude();
+
+        SettingsFactory.getSettings().setLat(lat);
+        SettingsFactory.getSettings().setLon(lon);
 
         EditText output = (EditText) findViewById(R.id.txtOutput);
 
@@ -162,9 +166,14 @@ public class MainActivity extends ActionBarActivity {
             sMessage += gv.getMessage();
 
 
-            WeatherView wv = new WeatherView(0.0, 0.0);
+            WeatherView wv = new WeatherView();
 
             sMessage += wv.getMessage();
+
+
+            CountdownView cdv = new CountdownView();
+
+            sMessage += cdv.getMessage();
 
             return sMessage;
         }
