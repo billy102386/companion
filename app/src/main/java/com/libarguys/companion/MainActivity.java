@@ -192,7 +192,7 @@ public class MainActivity extends ActionBarActivity {
 
             output.setText(result);
 
-
+ 
         }
 
     }
