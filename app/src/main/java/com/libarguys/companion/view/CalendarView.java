@@ -19,7 +19,7 @@ import java.util.TimeZone;
 /**
  * Created by androiddev on 2/10/15.
  */
-public class CalendarView {
+public class CalendarView implements IMessage {
 
     static Cursor cursor;
 
@@ -181,7 +181,9 @@ public class CalendarView {
     }
 
 
-    public String getCalendarMessage() {
+
+    @Override
+    public String getMessage() {
         calMessage="";
         ArrayList<String> events = getCalendarEvents();
         for(String event:events)
@@ -189,6 +191,5 @@ public class CalendarView {
             calMessage+= event+" ";
         }
         Log.i("CalendarView","Calendar Message: "+calMessage);
-        return calMessage;
-    }
+        return calMessage;    }
 }
