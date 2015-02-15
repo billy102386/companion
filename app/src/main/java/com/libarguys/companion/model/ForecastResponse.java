@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "cnt",
         "list"
 })
-public class Forecast {
+public class ForecastResponse {
 
     @JsonProperty("cod")
     private String cod;
