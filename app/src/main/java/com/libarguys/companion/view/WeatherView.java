@@ -60,7 +60,7 @@ public class WeatherView implements IMessage {
 
         Log.i("Companion", "Making HTTP Call for Weather");
 
-        LocationServices locServices = new LocationServices(context);
+        LocationServices locServices = new LocationServices();
         double lat = 0.0;
         double lon = 0.0;
         lat = locServices.getLatitude();

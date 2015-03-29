@@ -23,7 +23,39 @@ public class LocationServices extends Service implements LocationListener {
     private Location userLoc;
     private double lat;
     private double lon;
-public LocationServices(Context context) {
+
+    public LocationServices()
+    {
+        // Acquire a reference to the system Location Manager
+        LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+
+// Define a listener that responds to location updates
+        LocationListener locationListener = new LocationListener() {
+            public void onLocationChanged(Location location) {
+                // Called when a new location is found by the network location provider.
+                makeUseOfNewLocation(location);
+            }
+
+            public void onStatusChanged(String provider, int status, Bundle extras) {}
+
+            public void onProviderEnabled(String provider) {}
+
+            public void onProviderDisabled(String provider) {}
+        };
+
+// Register the listener with the Location Manager to receive location updates
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+
+    }
+
+    public void makeUseOfNewLocation(Location location)
+    {
+        lat = location.getLatitude();
+        lon = location.getLongitude();
+    }
+
+
+/*public LocationServices(Context context) {
     locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
     Boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
     Log.i("CompanionGPS", "GPS Enabled: " + isGPSEnabled);
@@ -44,7 +76,7 @@ public LocationServices(Context context) {
         Log.i("CompanionGPS", "Lat: " + lat);
         Log.i("CompanionGPS", "Lon: " + lon);
     }
-}
+}*/
 
     @Override
     public IBinder onBind(Intent intent) {
