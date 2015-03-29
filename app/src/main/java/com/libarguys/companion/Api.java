@@ -1,5 +1,6 @@
 package com.libarguys.companion;
 
+import com.libarguys.companion.model.ForecastResponse;
 import com.libarguys.companion.model.WeatherResponse;
 import com.libarguys.companion.view.WeatherView;
 
@@ -16,5 +17,7 @@ public interface Api {
     WeatherResponse getWeather(@Query("lat") Double lat, @Query("lon") Double lon, @Query("units") String units);
    // void getWeather(@Query("lat") Double lat, @Query("lon") Double lon, @Query("units") String units,
      //               Callback<WeatherResponse> callback);
+
+llback<WeatherResponse> callback);
 
 }

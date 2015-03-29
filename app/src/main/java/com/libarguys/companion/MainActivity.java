@@ -98,8 +98,12 @@ public class MainActivity extends ActionBarActivity {
         locMan.requestLocationUpdates(
                 LocationManager.NETWORK_PROVIDER, 0, 0,
                 locServices);
-         lat = locServices.getLatitude();
-         lon = locServices.getLongitude();
+       //  lat = locServices.getLatitude();
+       //  lon = locServices.getLongitude();
+
+
+
+
         new MessageTask().execute();
 
     }

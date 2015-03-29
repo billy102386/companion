@@ -77,18 +77,18 @@ public class WeatherView implements IMessage {
 
     private String getMessageMorning()
     {
-        return "Weather Morning";
+        return "Current conditions for " + res.getName() + ", " + res.getWeather().get(0).getDescription() + ". Today's hi's should reach 1000, with lows approaching -10. ";
     }
 
     private String getMessageAfternoon()
     {
-      return "Current conditions for " + res.getName() + ", " + res.getWeather().get(0).getDescription();
+      return "Current conditions for " + res.getName() + ", " + res.getWeather().get(0).getDescription() + ". ";
 
     }
 
     private String getMessageNight()
     {
-        return "Weather Night";
+        return "Current conditions for " + res.getName() + ", " + res.getWeather().get(0).getDescription() + ". Low's tonight will near -10. ";
     }
 
 
