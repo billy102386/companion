@@ -69,6 +69,7 @@ public class WeatherView implements IMessage {
 
         WeatherResponse weatherResponse=RestClient.get().getWeather(locServices.getLatitude(),locServices.getLongitude(),"imperial",api_key);
 
+
         Log.i("WeatherView","Weather:"+weatherResponse.getWeather().get(0).getDescription());
 
         return weatherResponse;
