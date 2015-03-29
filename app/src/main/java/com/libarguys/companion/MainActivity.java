@@ -39,6 +39,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setUpTTS();
 
 
         EditText output = (EditText) findViewById(R.id.txtOutput);
@@ -116,7 +117,31 @@ public class MainActivity extends ActionBarActivity {
         }
         super.onPause();
     }
+    private void setUpTTS()
+    {
+        if(tts == null)
+        {
+            tts = new TextToSpeech(MainActivity.this, new TextToSpeech.OnInitListener() {
+                @Override
+                public void onInit(int status) {
+                    // TODO Auto-generated method stub
+                    if (status == TextToSpeech.SUCCESS) {
+                        int result = tts.setLanguage(Locale.US);
+                        if (result == TextToSpeech.LANG_MISSING_DATA ||
+                                result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                            Log.e("error", "This Language is not supported");
+                        } else {
+                            //ConvertTextToSpeech();
+                            //tts.speak("TTS Setup Done",TextToSpeech.QUEUE_FLUSH,null);
 
+                        }
+                    } else
+                        Log.e("error", "Initilization Failed!");
+                }
+            });
+
+        }
+    }
 
     private void ConvertTextToSpeech(String message) {
         // TODO Auto-generated method stub
@@ -136,14 +161,14 @@ public class MainActivity extends ActionBarActivity {
                             //ConvertTextToSpeech();
 
 
-
                         }
                     } else
                         Log.e("error", "Initilization Failed!");
                 }
             });
+
         }
-        if (message == null || "".equals(message)) {
+        else if (message == null || "".equals(message)) {
             message = "Content not available";
             tts.speak(message, TextToSpeech.QUEUE_FLUSH, null);
         } else {

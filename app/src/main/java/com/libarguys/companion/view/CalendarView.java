@@ -11,6 +11,8 @@ import android.provider.CalendarContract.Calendars;
 import android.text.format.DateFormat;
 import android.util.Log;
 
+import com.libarguys.companion.util.Util;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.ArrayList;
@@ -113,8 +115,18 @@ public class CalendarView implements IMessage {
                     Log.i("CalendarView", " RAW start time = " + startTime + " TZ:" + eventTimeZone);
                     Date startTimeDate = new Date(startTime);
 
-                    String dateString = DateFormat.format("MM/dd/yyyy hh:mm:ss", new Date(startTime)).toString();
-                    String eventDesc = cursor.getString(1)+" at "+dateString;
+
+                    String eventDesc = cursor.getString(1)+" at ";
+                    String dateString = "";
+                    if(Util.isToday(startTime))
+                    {
+                         dateString = DateFormat.format("hh:mm a", new Date(startTime)).toString();
+                    }
+                    else
+                    {
+                         dateString = DateFormat.format("MM/dd/yyyy hh:mm a", new Date(startTime)).toString();
+                    }
+                    eventDesc += dateString;
                     Log.i("CalendarView", "Found Event on calendar :" + cursor.getString(0) + " named: " + eventDesc + " at: " + dateString);
 
                     eventList.add(eventDesc);
@@ -188,7 +200,7 @@ public class CalendarView implements IMessage {
         ArrayList<String> events = getCalendarEvents();
         for(String event:events)
         {
-            calMessage+= event+" ";
+            calMessage+= event+". ";
         }
         Log.i("CalendarView","Calendar Message: "+calMessage);
         return calMessage;    }

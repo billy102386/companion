@@ -21,6 +21,7 @@ public class WeatherView implements IMessage {
 
     private WeatherResponse res;
     private Context context;
+    private final String api_key = "3efff6d147054c27a15320da0731d70a";
 
     public WeatherView(Context c)
     {
@@ -66,7 +67,7 @@ public class WeatherView implements IMessage {
         //double lon = 0.0;
 
 
-        WeatherResponse weatherResponse=RestClient.get().getWeather(locServices.getLatitude(),locServices.getLongitude(),"imperial");
+        WeatherResponse weatherResponse=RestClient.get().getWeather(locServices.getLatitude(),locServices.getLongitude(),"imperial",api_key);
 
         Log.i("WeatherView","Weather:"+weatherResponse.getWeather().get(0).getDescription());
 
