@@ -14,10 +14,12 @@ import retrofit.http.Query;
 public interface Api {
 
     @GET("/weather")
-    WeatherResponse getWeather(@Query("lat") Double lat, @Query("lon") Double lon, @Query("units") String units);
+    WeatherResponse getWeather(@Query("lat") Double lat, @Query("lon") Double lon, @Query("units") String units,@Query("appid") String apiKey);
    // void getWeather(@Query("lat") Double lat, @Query("lon") Double lon, @Query("units") String units,
      //               Callback<WeatherResponse> callback);
 
-llback<WeatherResponse> callback);
+    @GET("/forecast")
+    ForecastResponse getForecast(@Query("lat") Double lat, @Query("lon") Double lon, @Query("units") String units,@Query("appid") String apiKey);
+
 
 }

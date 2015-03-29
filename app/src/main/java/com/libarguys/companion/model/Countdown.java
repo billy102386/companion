@@ -1,5 +1,7 @@
 package com.libarguys.companion.model;
 
+import android.util.Log;
+
 import com.libarguys.companion.util.Util;
 
 import java.util.ArrayList;
@@ -58,7 +60,6 @@ public class Countdown {
         Calendar target = Util.EasyCalendar(2015, 4,1);
 
         Countdown c = new Countdown(target, "Trip to Ireland");
-
         ArrayList<Countdown> countdowns = new ArrayList<Countdown>();
         countdowns.add(c);
 

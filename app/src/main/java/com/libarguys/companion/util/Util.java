@@ -2,6 +2,8 @@ package com.libarguys.companion.util;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 /**
  * Created by rich on 2/15/15.
@@ -32,6 +34,26 @@ public class Util {
         cal.set(Calendar.MILLISECOND, 0);            // set millisecond in second
 
         return cal;
+    }
+    public static boolean isToday(Long eventDateInMS)
+    {
+
+        Calendar rightNow = Calendar.getInstance();
+        TimeZone tz = TimeZone.getDefault();
+        rightNow.setTimeZone(tz);
+        int curMonth = rightNow.get(Calendar.MONTH);
+        int curDate = rightNow.get(Calendar.DATE);
+        int curYear = rightNow.get(Calendar.YEAR);
+        Calendar eventCal = Calendar.getInstance();
+        eventCal.setTimeInMillis(eventDateInMS);
+        int eventMonth = eventCal.get(Calendar.MONTH);
+        int eventDate = eventCal.get(Calendar.DATE);
+        int eventYear = eventCal.get(Calendar.YEAR);
+        if(curMonth==eventMonth && curDate==eventDate && curYear == eventYear)
+        {
+            return true;
+        }
+        return false;
     }
 
 }
