@@ -2,34 +2,28 @@ package com.libarguys.companion;
 
 
 
-import com.libarguys.companion.model.Greeting;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
-import android.os.StrictMode;
+import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.util.Log;
 import android.widget.EditText;
-import com.libarguys.companion.model.WeatherResponse;
+
 import com.libarguys.companion.view.CalendarView;
 import com.libarguys.companion.view.CountdownView;
 import com.libarguys.companion.view.GreetingView;
 import com.libarguys.companion.view.WeatherView;
 
-import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.Locale;
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -37,6 +31,9 @@ public class MainActivity extends ActionBarActivity {
 
     TextToSpeech tts;
     String message;
+    public static double lat;
+    public static double lon;
+    public static LocationServices locServices;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +93,13 @@ public class MainActivity extends ActionBarActivity {
     public void checkWeather(View view) {
 
         //ConvertTextToSpeech(MessageFactory.getFactory().getMessages());
-
+        locServices = new LocationServices(getApplicationContext());
+        LocationManager locMan = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locMan.requestLocationUpdates(
+                LocationManager.NETWORK_PROVIDER, 0, 0,
+                locServices);
+         lat = locServices.getLatitude();
+         lon = locServices.getLongitude();
         new MessageTask().execute();
 
     }
@@ -150,7 +153,17 @@ public class MainActivity extends ActionBarActivity {
 
 
     public class MessageTask extends AsyncTask<URL, Integer, String> {
-
+//        public double lati = 0.0;
+//        public double longi = 0.0;
+//
+//        public LocationManager mLocationManager;
+//        public LocationServices LocServices;
+//        @Override
+//        protected void onPreExecute() {
+//            mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+//
+//
+//        }
         @Override
         protected String doInBackground(URL... urls) {
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.libarguys.companion.LocationServices;
+import com.libarguys.companion.MainActivity;
 import com.libarguys.companion.RestClient;
 import com.libarguys.companion.SettingsFactory;
 import com.libarguys.companion.model.WeatherResponse;
@@ -60,11 +61,9 @@ public class WeatherView implements IMessage {
 
         Log.i("Companion", "Making HTTP Call for Weather");
 
-        LocationServices locServices = new LocationServices(context);
-        double lat = 0.0;
-        double lon = 0.0;
-        lat = locServices.getLatitude();
-        lon = locServices.getLongitude();
+        LocationServices locServices = MainActivity.locServices;
+        //double lat = 0.0;
+        //double lon = 0.0;
 
 
         WeatherResponse weatherResponse=RestClient.get().getWeather(locServices.getLatitude(),locServices.getLongitude(),"imperial");
