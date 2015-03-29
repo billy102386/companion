@@ -23,28 +23,28 @@ public class LocationServices extends Service implements LocationListener {
     private Location userLoc;
     private double lat;
     private double lon;
-public LocationServices(Context context) {
-    locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
-    Boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-    Log.i("CompanionGPS", "GPS Enabled: " + isGPSEnabled);
-    Double lat = 0.0;
-    Double lon = 0.0;
-    if (isGPSEnabled) {
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
-        Log.d("GPS Enabled", "GPS Enabled");
-        if (locationManager != null) {
-            userLoc = locationManager
-                    .getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            if (userLoc != null) {
-                lat = userLoc.getLatitude();
-                lon = userLoc.getLongitude();
+    public LocationServices(Context context) {
+        locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
+        Boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        Log.i("CompanionGPS", "GPS Enabled: " + isGPSEnabled);
+        Double lat = 0.0;
+        Double lon = 0.0;
+        if (isGPSEnabled) {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
+            Log.d("GPS Enabled", "GPS Enabled");
+            if (locationManager != null) {
+                userLoc = locationManager
+                        .getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                if (userLoc != null) {
+                    lat = userLoc.getLatitude();
+                    lon = userLoc.getLongitude();
+                }
             }
-        }
 
-        Log.i("CompanionGPS", "Lat: " + lat);
-        Log.i("CompanionGPS", "Lon: " + lon);
+            Log.i("CompanionGPS", "Lat: " + lat);
+            Log.i("CompanionGPS", "Lon: " + lon);
+        }
     }
-}
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -58,6 +58,10 @@ public LocationServices(Context context) {
             lat = userLoc.getLatitude();
         }
 
+        if(lat == 0)
+            return SettingsFactory.DEFAULT_LAT;
+
+
         // return latitude
         return lat;
     }
@@ -69,6 +73,9 @@ public LocationServices(Context context) {
         if(userLoc != null){
             lon = userLoc.getLongitude();
         }
+
+        if(lon == 0)
+            return SettingsFactory.DEFAULT_LON;
 
         // return longitude
         return lon;

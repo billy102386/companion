@@ -27,7 +27,7 @@ public class Util {
         Calendar cal = Calendar.getInstance();       // get calendar instance
         cal.set(Calendar.YEAR, year);
         cal.set(Calendar.MONTH, month);
-        cal.set(Calendar.DATE, date);
+        cal.set(Calendar.DAY_OF_MONTH, date);
         cal.set(Calendar.HOUR_OF_DAY, 0);            // set hour to midnight
         cal.set(Calendar.MINUTE, 0);                 // set minute in hour
         cal.set(Calendar.SECOND, 0);                 // set second in minute
