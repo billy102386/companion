@@ -18,7 +18,7 @@ public interface Api {
    // void getWeather(@Query("lat") Double lat, @Query("lon") Double lon, @Query("units") String units,
      //               Callback<WeatherResponse> callback);
 
-    @GET("/forecast")
+    @GET("/forecast/daily")
     ForecastResponse getForecast(@Query("lat") Double lat, @Query("lon") Double lon, @Query("units") String units,@Query("appid") String apiKey);
 
 

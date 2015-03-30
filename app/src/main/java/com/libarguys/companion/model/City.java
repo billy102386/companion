@@ -1,5 +1,6 @@
 package com.libarguys.companion.model;
-
+import java.util.HashMap;
+import java.util.Map;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Generated;
@@ -17,7 +18,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "name",
         "coord",
         "country",
-        "population"
+        "population",
+        "sys"
 })
 public class City {
 
@@ -31,6 +33,8 @@ public class City {
     private String country;
     @JsonProperty("population")
     private Integer population;
+    @JsonProperty("sys")
+    private Sys sys;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -132,6 +136,26 @@ public class City {
     @JsonProperty("population")
     public void setPopulation(Integer population) {
         this.population = population;
+    }
+
+    /**
+     *
+     * @return
+     * The sys
+     */
+    @JsonProperty("sys")
+    public Sys getSys() {
+        return sys;
+    }
+
+    /**
+     *
+     * @param sys
+     * The sys
+     */
+    @JsonProperty("sys")
+    public void setSys(Sys sys) {
+        this.sys = sys;
     }
 
     @JsonAnyGetter

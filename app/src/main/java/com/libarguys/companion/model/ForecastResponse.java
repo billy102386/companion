@@ -33,7 +33,7 @@ public class ForecastResponse {
     @JsonProperty("cnt")
     private Integer cnt;
     @JsonProperty("list")
-    private java.util.List<List> list = new ArrayList<List>();
+    private java.util.List<ForecastList> list = new ArrayList<ForecastList>();
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -123,7 +123,7 @@ public class ForecastResponse {
      * The list
      */
     @JsonProperty("list")
-    public java.util.List<List> getList() {
+    public java.util.List<ForecastList> getList() {
         return list;
     }
 
@@ -133,7 +133,7 @@ public class ForecastResponse {
      * The list
      */
     @JsonProperty("list")
-    public void setList(java.util.List<List> list) {
+    public void setList(java.util.List<ForecastList> list) {
         this.list = list;
     }
 

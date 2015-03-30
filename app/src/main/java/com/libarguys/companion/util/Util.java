@@ -35,6 +35,30 @@ public class Util {
 
         return cal;
     }
+
+    public static Calendar EasyCalendar()
+    {
+
+        Calendar calendar = Calendar.getInstance();
+
+        return calendar;
+
+    }
+
+
+    public static Calendar EasyCalendar(long unixTime)
+    {
+
+        unixTime = unixTime*1000; //java likes things in miliseconds
+        Date d = new Date(unixTime);
+
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(d);
+        return calendar;
+
+    }
+
     public static boolean isToday(Long eventDateInMS)
     {
 

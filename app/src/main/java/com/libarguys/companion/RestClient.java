@@ -1,4 +1,5 @@
 package com.libarguys.companion;
+import android.util.Log;
 
 import com.squareup.okhttp.OkHttpClient;
 
@@ -31,6 +32,9 @@ public class RestClient {
                 .setLogLevel(RestAdapter.LogLevel.FULL);
 
         RestAdapter restAdapter = builder.build();
+
+   //     Log.i("RestClient", "Rest Adapter built: " + builder.build().toString());
+
         REST_CLIENT = restAdapter.create(Api.class);
     }
 }

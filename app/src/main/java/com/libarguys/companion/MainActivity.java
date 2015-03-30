@@ -41,6 +41,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         setUpTTS();
 
+        getMessages();
 
         EditText output = (EditText) findViewById(R.id.txtOutput);
 
@@ -93,21 +94,28 @@ public class MainActivity extends ActionBarActivity {
 
     public void checkWeather(View view) {
 
+
+        getMessages();
+
+
+
+    }
+
+    public void getMessages()
+    {
         //ConvertTextToSpeech(MessageFactory.getFactory().getMessages());
         locServices = new LocationServices(getApplicationContext());
         LocationManager locMan = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         locMan.requestLocationUpdates(
                 LocationManager.NETWORK_PROVIDER, 0, 0,
                 locServices);
-       //  lat = locServices.getLatitude();
-       //  lon = locServices.getLongitude();
-
-
-
+        //  lat = locServices.getLatitude();
+        //  lon = locServices.getLongitude();
 
         new MessageTask().execute();
 
     }
+
 
 
     @Override
